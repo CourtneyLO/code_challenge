@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 
 var db = require('./model/db');
 var usersdb = require('./model/users');
+var placesdb = require('./model/places');
 var addusers = require('./public/javascripts/addUsers')
+var addplaces = require('./public/javascripts/addPlaces')
 
 var index = require('./routes/index');
 var users = require('./routes/users');

@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require("mongoose");
+var bodyParser = require('body-parser');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Places');
-});
+
+router.route('/')
+  .get(function(req, res, next) {
+    mongoose.model("Place").find({}, function(err, places){
+      if (err) {
+        return console.error(err)
+      } else {
+        res.json(places)
+      }
+    });
+  });
 
 module.exports = router;
