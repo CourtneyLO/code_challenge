@@ -9,6 +9,7 @@ router.route('/')
               if (err) {
                   return console.error(err);
               } else {
+                // var userObj = {allUser: users}
                   res.json(users);
               }
         });
