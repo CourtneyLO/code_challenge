@@ -11,6 +11,8 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+import homeScreen from './homeScreen';
+
   var REQUEST_URL = 'http://localhost:3000/users';
 
   var userScreen = React.createClass({
@@ -62,12 +64,21 @@ import {
      );
    },
 
+   _navigateToHome() {
+     this.props.navigator.push({
+       name: 'homeScreen'
+     })
+   },
+
    renderUser: function(user) {
      return (
        <View style={styles.container}>
          <View style={styles.rightContainer}>
            <Text style={styles.text}>{user.firstName} {user.lastName} {user.age} {user.city}</Text>
          </View>
+         <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToHome() }>
+           <Text style={ styles.buttonText }>HomePage</Text>
+         </TouchableHighlight>
        </View>
      );
    },
