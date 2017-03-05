@@ -6,6 +6,7 @@ import {
   Text,
   View,
   Navigator,
+  Image,
   TouchableHighlight
 } from 'react-native';
 
@@ -30,16 +31,24 @@ var homeScreen = React.createClass ({
   render: function() {
      return (
        <View style={ styles.container }>
+       <Image source={require('./Cape-Town-with-Table-Mountain.png')}
+                 style={styles.backgroundImage}>
+
+                 {this.props.children}
+
       <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToUsers() }>
         <Text style={ styles.buttonText }>Users</Text>
       </TouchableHighlight>
+
       <Text>{"\n"}</Text>
+      </Image>
       <Text style={ styles.heading }>Kompas</Text>
       <Text>{"\n"}</Text>
      <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToPlaces() }>
        <Text style={ styles.buttonText }>Places</Text>
      </TouchableHighlight>
      <Text>{"\n"}</Text>
+
       </View>
    );
   }
@@ -50,6 +59,12 @@ var homeScreen = React.createClass ({
     flex: 1,
    	marginTop: 110
   },
+  backgroundImage: {
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'cover'
+    },
    heading: {
     fontWeight: 'bold',
     textAlign: 'center',

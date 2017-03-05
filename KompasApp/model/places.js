@@ -5,7 +5,7 @@ var placeSchema = new mongoose.Schema({
   city: String,
   address: String,
   type: String,
-  rating: Number
+  rating: String
 });
 
 mongoose.model('Place', placeSchema)

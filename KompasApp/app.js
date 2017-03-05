@@ -14,7 +14,7 @@ var addplaces = require('./public/javascripts/addPlaces')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var places = require('./routes/places');
-// var send = require("./routes/send");
+
 
 var app = express();
 
