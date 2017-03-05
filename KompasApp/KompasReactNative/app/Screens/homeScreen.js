@@ -12,21 +12,22 @@ import {
 import userScreen from './usersScreen';
 import placeScreen from './placesScreen';
 
-export default class HomePage extends Component {
 
-  _navigateToUsers() {
+var homeScreen = React.createClass ({
+
+  _navigateToUsers: function() {
   	this.props.navigator.push({
     	name: 'userScreen'
     })
-  }
+  },
 
-  _navigateToPlaces() {
+  _navigateToPlaces: function() {
   	this.props.navigator.push({
     	name: 'placeScreen'
     })
-  }
+  },
 
-  render() {
+  render: function() {
      return (
        <View style={ styles.container }>
       <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToUsers() }>
@@ -38,10 +39,11 @@ export default class HomePage extends Component {
      <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToPlaces() }>
        <Text style={ styles.buttonText }>Places</Text>
      </TouchableHighlight>
+     <Text>{"\n"}</Text>
       </View>
    );
   }
-}
+})
 
   var styles = StyleSheet.create({
   container: {
@@ -68,3 +70,5 @@ export default class HomePage extends Component {
     color: 'black'
   }
 });
+
+module.exports = homeScreen

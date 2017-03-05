@@ -6,6 +6,7 @@ import {
 import Home from './Screens/homeScreen';
 import Users from './Screens/usersScreen';
 import Places from './Screens/placesScreen';
+import Send from './Screens/sendScreen';
 
 const RouteMapper = (route, navigator) => {
   if (route.name == 'homeScreen') {
@@ -17,10 +18,13 @@ const RouteMapper = (route, navigator) => {
   if (route.name == "placeScreen") {
     return <Places navigator={navigator} />;
   }
+  if (route.name == "sendScreen") {
+    return <Send navigator={navigator} />;
+  }
 };
 
-export default class App extends Component {
-  render() {
+var App = React.createClass ({
+  render: function() {
     return (
       <Navigator
         initialRoute={{ name: 'homeScreen' }}
@@ -29,4 +33,6 @@ export default class App extends Component {
       />
     );
   }
-}
+})
+
+module.exports = App

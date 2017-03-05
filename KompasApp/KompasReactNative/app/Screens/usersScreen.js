@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import homeScreen from './homeScreen';
+import sendScreen from './sendScreen';
 
   var REQUEST_URL = 'http://localhost:3000/users';
 
@@ -64,21 +65,32 @@ import homeScreen from './homeScreen';
      );
    },
 
-   _navigateToHome() {
+   _navigateToHome: function() {
      this.props.navigator.push({
        name: 'homeScreen'
      })
    },
 
+   _navigateToSend: function() {
+     this.props.navigator.push({
+       name: 'sendScreen'
+     })
+   },
+
    renderUser: function(user) {
      return (
-       <View style={styles.container}>
-         <View style={styles.rightContainer}>
-           <Text style={styles.text}>{user.firstName} {user.lastName} {user.age} {user.city}</Text>
-         </View>
-         <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToHome() }>
+       <View>
+         <View style={styles.container}>
+           <View style={styles.rightContainer}>
+             <Text style={styles.text}>{user.firstName} {user.lastName} {user.age} {user.city}</Text>
+           </View>
+           <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToHome() }>
            <Text style={ styles.buttonText }>HomePage</Text>
-         </TouchableHighlight>
+           </TouchableHighlight>
+           <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToSend() }>
+           <Text style={ styles.buttonText }>Send</Text>
+           </TouchableHighlight>
+         </View>
        </View>
      );
    },

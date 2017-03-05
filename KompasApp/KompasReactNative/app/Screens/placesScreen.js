@@ -64,7 +64,7 @@ import homeScreen from './homeScreen';
      );
    },
 
-   _navigateToHome() {
+   _navigateToHome: function() {
      this.props.navigator.push({
        name: 'homeScreen'
      })
