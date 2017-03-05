@@ -14,6 +14,7 @@ var addplaces = require('./public/javascripts/addPlaces')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var places = require('./routes/places');
+var send = require('./routes/send');
 
 
 var app = express();
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/places', places);
-// app.use('/send', send)
+app.use('/send', send)
 
 
 // catch 404 and forward to error handler

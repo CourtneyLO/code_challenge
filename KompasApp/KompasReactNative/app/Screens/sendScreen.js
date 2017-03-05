@@ -12,7 +12,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-var REQUEST_URL = 'http://localhost:3000/users';
+var REQUEST_URL = 'http://localhost:3000/send';
 
 var sendScreen = React.createClass({
 
