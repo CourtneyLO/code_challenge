@@ -75,7 +75,7 @@ var placeScreen = React.createClass({
      return (
        <View style={styles.container}>
          <View style={styles.rightContainer}>
-           <Text style={styles.text}>{place.name} { place.type} <Text>{"\n"}</Text> {place.address}, {place.city} <Text>{"\n"}</Text> {place.rating}/10</Text>
+           <Text style={styles.text}>{place.name} { place.type}, {place.address}, {place.city} <Text>{"\n"}</Text> {place.rating}/10</Text>
          </View>
        </View>
      );
@@ -100,6 +100,13 @@ var styles = StyleSheet.create({
      justifyContent: 'center',
      alignItems: 'center',
      backgroundColor: '#eeee',
+     borderRadius: 4,
+     borderWidth: 0.5,
+     borderColor: 'black',
+     marginTop: 0.5,
+     marginBottom: 0.5,
+     paddingTop: 0,
+     paddingBottom: 3,
    },
    rightContainer: {
      flex: 1,
@@ -111,7 +118,7 @@ var styles = StyleSheet.create({
      borderRadius: 10,
    },
    text: {
-     fontSize: 8,
+     fontSize: 7.5,
      textAlign: 'center'
    }
  });

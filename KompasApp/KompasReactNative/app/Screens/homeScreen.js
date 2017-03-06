@@ -59,11 +59,13 @@ var homeScreen = React.createClass ({
 var styles = StyleSheet.create({
   container1: {
     flex: 1,
-   	marginTop: 200,
+    justifyContent: 'center',
+   	marginTop: 190,
   },
   container2: {
     flex: 1,
-   	marginTop: -85,
+    justifyContent: 'center',
+   	marginBottom: 175,
   },
   backgroundImage: {
     flex: 1,

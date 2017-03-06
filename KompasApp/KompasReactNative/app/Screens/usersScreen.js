@@ -60,10 +60,10 @@ var userScreen = React.createClass({
               renderRow={this.renderUser}
               style={styles.listView}
           />
-          <TouchableHighlight style={ styles.button1 }
+          <TouchableHighlight style={ styles.buttonSend }
               onPress={ () => this._navigateToSend() }
               underlayColor="white">
-              <Text style={ styles.buttonSend }>Send</Text>
+              <Text style={ styles.buttonSendText }>Add User</Text>
           </TouchableHighlight>
        </View>
      );
@@ -109,6 +109,9 @@ var styles = StyleSheet.create({
      justifyContent: 'center',
      alignItems: 'center',
      backgroundColor: '#eeee',
+     borderRadius: 4,
+     borderWidth: 0.5,
+     borderColor: '#d6d7da',
    },
    rightContainer: {
      flex: 1,
@@ -126,14 +129,14 @@ var styles = StyleSheet.create({
      borderRadius: 10,
      marginLeft: 10,
    },
-    button1: {
-      marginTop: 40,
-      alignItems: 'center',
-    },
     buttonSend: {
-      backgroundColor: '#000000',
+      marginTop: 10,
+    },
+    buttonSendText: {
+      backgroundColor: '#16197c',
       color: "white",
       fontSize: 20,
+      textAlign: 'center',
     },
     text: {
       textAlign: 'center',
