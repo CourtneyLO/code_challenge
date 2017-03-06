@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ListView,
   Text,
+  Image,
   View,
   TouchableHighlight,
 } from 'react-native';
@@ -43,24 +44,26 @@ import sendScreen from './sendScreen';
    },
 
    render: function() {
-     if (!this.state.loaded) {
-       return this.renderLoadingView();
-     }
      return (
+       <View>
+        <Text style= {styles.header}>Users</Text>
+        <TouchableHighlight style={ styles.button }
+           onPress={ () => this._navigateToHome() }
+           underlayColor="white">
+           <Image style={ styles.imageUser } source={require('KompasReactNative/app/img/home.png')} />
+        </TouchableHighlight>
        <ListView
+       style={{marginTop: 0}}
+          initialListSize={-3}
          dataSource={this.state.dataSource}
          renderRow={this.renderUser}
          style={styles.listView}
        />
-     );
-   },
-
-   renderLoadingView: function() {
-     return (
-       <View style={styles.container}>
-         <Text>
-           Loading users...
-         </Text>
+       <TouchableHighlight style={ styles.button1 }
+          onPress={ () => this._navigateToSend() }
+          underlayColor="white">
+          <Text style={ styles.buttonSend }>Send</Text>
+       </TouchableHighlight>
        </View>
      );
    },
@@ -77,39 +80,68 @@ import sendScreen from './sendScreen';
      })
    },
 
+
    renderUser: function(user) {
      return (
        <View>
-         <View style={styles.container}>
-           <View style={styles.rightContainer}>
-             <Text style={styles.text}>{user.firstName} {user.lastName} {user.age} {user.city}</Text>
-           </View>
-           <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToHome() }>
-           <Text style={ styles.buttonText }>HomePage</Text>
-           </TouchableHighlight>
-           <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToSend() }>
-           <Text style={ styles.buttonText }>Send</Text>
-           </TouchableHighlight>
-         </View>
+          <View style={styles.container}>
+
+            <View style={styles.rightContainer}>
+              <Text style={styles.text}>{user.firstName} {user.lastName} {user.age} <Text>{"\n"}</Text> {user.city}</Text>
+            </View>
+
+          </View>
        </View>
      );
    },
  });
 
  var styles = StyleSheet.create({
+   header: {
+     marginTop: 30,
+     fontSize: 20,
+     textAlign: 'center'
+   },
    container: {
      flex: 1,
      flexDirection: 'row',
      justifyContent: 'center',
      alignItems: 'center',
-     backgroundColor: '#F5FCFF',
+     backgroundColor: '#eeee',
    },
    rightContainer: {
      flex: 1,
+     marginTop: 7
+   },
+   imageHome: {
+     height:15,
+     width: 15,
+     borderRadius: 10,
+     marginLeft: 10
+ },
+ imageUser: {
+   height:15,
+   width: 15,
+   borderRadius: 10,
+   marginLeft: 10
+},
+button1: {
+  marginTop: 40,
+  alignItems: 'center'
+},
+buttonSend: {
+  backgroundColor: '#000000',
+  color: "white",
+  fontSize: 20,
+},
+   text: {
+     textAlign: 'center',
+     fontSize: 8,
    },
    listView: {
-     paddingTop: 20,
-     backgroundColor: '#F5FCFF',
+     paddingTop: 10,
+     backgroundColor: '#eeee',
+     borderRadius: 100,
    },
  });
 

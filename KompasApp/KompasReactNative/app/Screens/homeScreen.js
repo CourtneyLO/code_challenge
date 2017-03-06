@@ -30,40 +30,47 @@ var homeScreen = React.createClass ({
 
   render: function() {
      return (
-       <View style={ styles.container }>
-       <Image source={require('./Cape-Town-with-Table-Mountain.png')}
-                 style={styles.backgroundImage}>
+       <Image source={require('KompasReactNative/app/img/KompasAppImg.jpg')}
+       style={styles.backgroundImage}>
 
-                 {this.props.children}
+       {this.props.children}
+       <View style={ styles.container1 }>
 
-      <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToUsers() }>
-        <Text style={ styles.buttonText }>Users</Text>
+       <TouchableHighlight style={ styles.buttonPlaces }
+          onPress={ () => this._navigateToPlaces() }
+          underlayColor="white">
+         <Text style={ styles.buttonText }>Places</Text>
+       </TouchableHighlight>
+       </View>
+
+       <View style={ styles.container2 }>
+      <TouchableHighlight style={ styles.buttonUsers }
+          onPress={ () => this._navigateToUsers() }
+          underlayColor="white">
+          <Text style={ styles.buttonText }>Users</Text>
       </TouchableHighlight>
 
-      <Text>{"\n"}</Text>
-      </Image>
-      <Text style={ styles.heading }>Kompas</Text>
-      <Text>{"\n"}</Text>
-     <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToPlaces() }>
-       <Text style={ styles.buttonText }>Places</Text>
-     </TouchableHighlight>
-     <Text>{"\n"}</Text>
 
       </View>
+      </Image>
    );
   }
 })
 
   var styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
-   	marginTop: 110
+   	marginTop: 200
+  },
+  container2: {
+    flex: 1,
+   	marginTop: -85
   },
   backgroundImage: {
         flex: 1,
         width: null,
         height: null,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
    heading: {
     fontWeight: 'bold',
@@ -72,17 +79,21 @@ var homeScreen = React.createClass ({
     marginTop:50,
     marginBottom:50
   },
-  button: {
-  	height:40,
-    borderColor: 'white',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+  buttonPlaces: {
+    height:40,
+    backgroundColor: '#C0C0C0',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  buttonUsers: {
+  	height:40,
+    backgroundColor: '#696969',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
   	fontSize:25,
-    color: 'black'
+    color: 'black',
   }
 });
 
