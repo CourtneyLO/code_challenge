@@ -32,7 +32,8 @@ var sendScreen = React.createClass({
               lastName: "Osborn",
               age: 26,
               city: "London"
-            })})
+            })
+          })
           .then((response) => response.json())
           .then((responseData) => {
               AlertIOS.alert(
@@ -42,83 +43,85 @@ var sendScreen = React.createClass({
           })
           .done();
       },
+
       render: function() {
           return (
             <View style={styles.container}>
               <TouchableHighlight style={ styles.buttonHome }
                   onPress={ () => this._navigateToHome() }
                   underlayColor="white">
-                <Image style={ styles.imageHome } source={require('KompasReactNative/app/img/home.png')} />
+                  <Image style={ styles.imageHome } source={require('../img/home.png')} />
               </TouchableHighlight>
               <TouchableHighlight style={ styles.buttonUsers }
                   onPress={ () => this._navigateToUsers() }
                   underlayColor="white">
-                <Image style={ styles.imageUser } source={require('KompasReactNative/app/img/user.png')} />
+                  <Image style={ styles.imageUser } source={require('../img/user.png')} />
               </TouchableHighlight>
               <Text style= {styles.header}>Add User:</Text>
               <Text style= {styles.name}> Courtney Osborn</Text>
               <TouchableHighlight style={styles.buttonSend}
-                onPress={this._onPressButtonPOST}
-                underlayColor="white">
-                <Text>SEND</Text>
+                  onPress={this._onPressButtonPOST}
+                  underlayColor="white">
+                  <Text>SEND</Text>
               </TouchableHighlight>
-            </View>
+           </View>
           );
       },
 
       _navigateToHome: function() {
         this.props.navigator.push({
           name: 'homeScreen'
-        })
+        });
       },
 
       _navigateToUsers: function() {
         this.props.navigator.push({
           name: 'userScreen'
-        })
+        });
       },
   });
 
 
-  var styles = StyleSheet.create({
-    header: {
-      marginTop: 0,
-      fontSize: 18,
-      textAlign: 'center'
-    },
-      container: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#eeeeee',
-      },
-      imageHome: {
-        height:15,
-        width: 15
-      },
-      imageUser: {
-        height:15,
-        width: 15,
-        marginTop: -5,
-        alignSelf: 'flex-end'
-      },
-      buttonSend: {
-          backgroundColor: '#C0C0C0',
-          padding: 10,
-          marginRight: 5,
-          marginLeft: 5,
-          marginTop: 10,
-      },
-      buttonUsers: {
-        alignSelf: 'center',
-        marginLeft: 50,
-        marginTop: -10,
-        marginBottom: 10
-      },
-      buttonHome: {
-        marginTop: 0,
-        marginRight: 50,
-        marginBottom: 0
+var styles = StyleSheet.create({
+   header: {
+     marginTop: 0,
+     fontSize: 18,
+     textAlign: 'center',
+   },
+   container: {
+     flex: 1,
+     justifyContent: 'center',
+     alignItems: 'center',
+     backgroundColor: '#eeeeee',
+   },
+   imageHome: {
+     height:15,
+     width: 15,
+   },
+   imageUser: {
+     height:15,
+     width: 15,
+     marginTop: -5,
+     alignSelf: 'flex-end'
+   },
+   buttonSend: {
+     backgroundColor: '#C0C0C0',
+     padding: 10,
+     marginRight: 5,
+     marginLeft: 5,
+     marginTop: 10,
+   },
+   buttonUsers: {
+     alignSelf: 'center',
+     marginLeft: 50,
+     marginTop: -10,
+     marginBottom: 10,
+   },
+   buttonHome: {
+     marginTop: 0,
+     marginRight: 50,
+     marginBottom: 0,
       }
-  });
-module.exports = sendScreen
+});
+
+module.exports = sendScreen;

@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 import {
   Navigator,
@@ -33,6 +35,6 @@ var App = React.createClass ({
       />
     );
   }
-})
+});
 
-module.exports = App
+module.exports = App;

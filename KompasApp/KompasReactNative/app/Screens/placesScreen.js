@@ -17,8 +17,9 @@ import userScreen from './usersScreen';
 
   var REQUEST_URL = 'http://localhost:3000/places';
 
-  var placeScreen = React.createClass({
-    getInitialState: function() {
+var placeScreen = React.createClass({
+
+   getInitialState: function() {
      return {
        dataSource: new ListView.DataSource({
          rowHasChanged: (row1, row2) => row1 !== row2,
@@ -46,19 +47,19 @@ import userScreen from './usersScreen';
    render: function() {
      return (
        <View>
-        <Text style= {styles.header}>Places</Text>
-        <TouchableHighlight style={ styles.button1 }
-          onPress={ () => this._navigateToHome() }
-          underlayColor="white">
-           <Image style={ styles.imageHome } source={require('KompasReactNative/app/img/home.png')} />
-        </TouchableHighlight>
-       <ListView
-         style={{marginTop: 0}}
-         initialListSize={-3}
-         dataSource={this.state.dataSource}
-         renderRow={this.renderPlace}
-         style={styles.listView}
-       />
+          <Text style= {styles.header}>Places</Text>
+          <TouchableHighlight style={ styles.button1 }
+              onPress={ () => this._navigateToHome() }
+              underlayColor="white">
+               <Image style={ styles.imageHome } source={require('../img/home.png')} />
+          </TouchableHighlight>
+          <ListView
+             style={{marginTop: 0}}
+             initialListSize={-3}
+             dataSource={this.state.dataSource}
+             renderRow={this.renderPlace}
+             style={styles.listView}
+          />
        </View>
      );
    },
@@ -67,7 +68,7 @@ import userScreen from './usersScreen';
    _navigateToHome: function() {
      this.props.navigator.push({
        name: 'homeScreen'
-     })
+     });
    },
 
    renderPlace: function(place) {
@@ -79,9 +80,9 @@ import userScreen from './usersScreen';
        </View>
      );
    },
- });
+});
 
- var styles = StyleSheet.create({
+var styles = StyleSheet.create({
    header: {
      marginTop: 30,
      fontSize: 18,
@@ -91,8 +92,8 @@ import userScreen from './usersScreen';
      height:15,
      width: 15,
      borderRadius: 10,
-     marginLeft: 10
- },
+     marginLeft: 10,
+   },
    container: {
      flex: 1,
      flexDirection: 'row',
@@ -116,4 +117,4 @@ import userScreen from './usersScreen';
  });
 
 
-module.exports = placeScreen
+module.exports = placeScreen;

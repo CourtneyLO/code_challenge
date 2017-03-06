@@ -16,4 +16,4 @@ var place1 = mongoose.model("Place").create(
   { name: "Workshop Coffee Co", city: "London", address: "75 Wigmore Street", type: "Coffee Shop", rating: 8},
   { name: "Starbucks", city: "London", address: "52 Old Compton Street", type: "Coffee Shop", rating: 7},
   { name: "Bar Termini", city: "London", address: "7 Old Compton Street", type: "Coffee Shop", rating: 8}
-)
+);

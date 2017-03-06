@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 var placeSchema = new mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ var placeSchema = new mongoose.Schema({
   rating: Number
 });
 
-mongoose.model('Place', placeSchema)
+mongoose.model('Place', placeSchema);

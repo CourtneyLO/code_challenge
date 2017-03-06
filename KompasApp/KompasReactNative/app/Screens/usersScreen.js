@@ -17,7 +17,8 @@ import sendScreen from './sendScreen';
 
   var REQUEST_URL = 'http://localhost:3000/users';
 
-  var userScreen = React.createClass({
+var userScreen = React.createClass({
+
     getInitialState: function() {
      return {
        dataSource: new ListView.DataSource({
@@ -46,24 +47,24 @@ import sendScreen from './sendScreen';
    render: function() {
      return (
        <View>
-        <Text style= {styles.header}>Users</Text>
-        <TouchableHighlight style={ styles.button }
-           onPress={ () => this._navigateToHome() }
-           underlayColor="white">
-           <Image style={ styles.imageUser } source={require('KompasReactNative/app/img/home.png')} />
-        </TouchableHighlight>
-       <ListView
-       style={{marginTop: 0}}
-          initialListSize={-3}
-         dataSource={this.state.dataSource}
-         renderRow={this.renderUser}
-         style={styles.listView}
-       />
-       <TouchableHighlight style={ styles.button1 }
-          onPress={ () => this._navigateToSend() }
-          underlayColor="white">
-          <Text style={ styles.buttonSend }>Send</Text>
-       </TouchableHighlight>
+          <Text style= {styles.header}>Users</Text>
+          <TouchableHighlight style={ styles.button }
+              onPress={ () => this._navigateToHome() }
+              underlayColor="white">
+              <Image style={ styles.imageUser } source={require('../img/home.png')} />
+          </TouchableHighlight>
+          <ListView
+              style={{marginTop: 0}}
+              initialListSize={-3}
+              dataSource={this.state.dataSource}
+              renderRow={this.renderUser}
+              style={styles.listView}
+          />
+          <TouchableHighlight style={ styles.button1 }
+              onPress={ () => this._navigateToSend() }
+              underlayColor="white">
+              <Text style={ styles.buttonSend }>Send</Text>
+          </TouchableHighlight>
        </View>
      );
    },
@@ -71,13 +72,13 @@ import sendScreen from './sendScreen';
    _navigateToHome: function() {
      this.props.navigator.push({
        name: 'homeScreen'
-     })
+     });
    },
 
    _navigateToSend: function() {
      this.props.navigator.push({
        name: 'sendScreen'
-     })
+     });
    },
 
 
@@ -94,13 +95,13 @@ import sendScreen from './sendScreen';
        </View>
      );
    },
- });
+});
 
- var styles = StyleSheet.create({
+var styles = StyleSheet.create({
    header: {
      marginTop: 30,
      fontSize: 20,
-     textAlign: 'center'
+     textAlign: 'center',
    },
    container: {
      flex: 1,
@@ -111,39 +112,39 @@ import sendScreen from './sendScreen';
    },
    rightContainer: {
      flex: 1,
-     marginTop: 7
+     marginTop: 7,
    },
    imageHome: {
      height:15,
      width: 15,
      borderRadius: 10,
-     marginLeft: 10
- },
- imageUser: {
-   height:15,
-   width: 15,
-   borderRadius: 10,
-   marginLeft: 10
-},
-button1: {
-  marginTop: 40,
-  alignItems: 'center'
-},
-buttonSend: {
-  backgroundColor: '#000000',
-  color: "white",
-  fontSize: 20,
-},
-   text: {
-     textAlign: 'center',
-     fontSize: 8,
+     marginLeft: 10,
    },
-   listView: {
-     paddingTop: 10,
-     backgroundColor: '#eeee',
-     borderRadius: 100,
+   imageUser: {
+     height:15,
+     width: 15,
+     borderRadius: 10,
+     marginLeft: 10,
    },
- });
+    button1: {
+      marginTop: 40,
+      alignItems: 'center',
+    },
+    buttonSend: {
+      backgroundColor: '#000000',
+      color: "white",
+      fontSize: 20,
+    },
+    text: {
+      textAlign: 'center',
+      fontSize: 8,
+    },
+    listView: {
+      paddingTop: 10,
+      backgroundColor: '#eeee',
+      borderRadius: 100,
+    }
+});
 
 
-module.exports = userScreen
+module.exports = userScreen;

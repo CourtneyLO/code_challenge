@@ -16,4 +16,4 @@ var user1 = mongoose.model('User').create(
   { firstName: "Mike", lastName: "Hurl", age: 35, city: "London"},
   { firstName: "Rob", lastName: "Adams", age: 34, city: "Barcelona"},
   { firstName: "Russel", lastName: "Yeo", age: 24, city: "London"}
-)
+);
